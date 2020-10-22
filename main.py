@@ -12,7 +12,7 @@ numiral = ''
 move = 1
 block = 0
 start = 1
-QUTSIZE_BG = (0, -100)
+OUTSIZE_BG = (0, -100)
 
 pygame.init()
 pygame.display.set_caption('угодай число')
@@ -44,7 +44,7 @@ def dialogs(text, pos, owl_text):
     screen.blit(font2.render(text, True, BLACK), (pos[0] + 5, pos[1] + 5))
     screen.blit(dialog, dialog_owl_pos)
     screen.blit(font2.render(owl_text, True, BLACK), (dialog_owl_pos[0] + 5, dialog_owl_pos[1] + 5))
-    pygame.display.update
+    pygame.display.update()
     pygame.time.wait(2000)
 
 
@@ -65,3 +65,9 @@ while run:
         screen.blit(font_box, font_box_rect)
         font_box.fill(SILVER)
     pygame.display.update()
+
+    if start == 1:
+        dialogs('', OUTSIZE_BG, 'Я загадала число')
+        dialogs('', OUTSIZE_BG, 'от 0 до 100')
+        dialogs('Кот твой ход', dialog_dog_pos, 'Отгадай его')
+        start = 0
